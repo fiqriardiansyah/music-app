@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-black-secondary;
+  }
+}
+
+@layer components {
+  .container-layout {
+    @apply px-4 lg:px-10 mx-auto container;
+  }
+}
+
+@theme {
+  --font-display: Inter, "sans-serif";
+  --color-black: #0d0d0d;
+  --color-black-secondary: #1f1e1e;
+  --color-green: #c4f64d;
+  --color-white: #fefefe;
+}
+
+.hide-horizontal-scrollbar {
+  color: #1f1e1e;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Disable vertical scrolling if not needed */
+
+  /* Hide scrollbar for WebKit-based browsers (Chrome, Safari, Opera) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+::-webkit-scrollbar {
+  display: none; /* WebKit-based browsers */
+}
