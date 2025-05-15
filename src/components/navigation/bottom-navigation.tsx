@@ -1,20 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { motion } from "framer-motion";
 import { CirclePlus, House, LibraryBig, Search, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import reverseCornerImg from "../../assets/rounded-reverse.svg";
-import { useBreakpoints, useResizeObserver } from "../../hooks";
+import { useBreakpoints } from "../../hooks";
 
 export default function BottomNavigation() {
   const location = useLocation();
   const [_, setRender] = useState(false);
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
-  const itemRefs = useRef([]);
+  const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const { isSM } = useBreakpoints();
-  const { ref, width } = useResizeObserver<HTMLDivElement>();
 
   const navigations = [
     { index: 0, icon: House, title: "Home", link: "/" },
@@ -61,7 +60,7 @@ export default function BottomNavigation() {
       <div className="absolute bottom-0 h-[6px] bg-black z-[-2] w-full rounded-full"></div>
       <motion.div
         animate={{
-          width: itemRefs.current[active]?.offsetLeft - 10 + 20,
+          width: (itemRefs.current[active] as any)?.offsetLeft - 10 + 20,
           left: -20,
         }}
         className={`h-full bg-black absolute z-[-1] left-0 ${
@@ -80,8 +79,8 @@ export default function BottomNavigation() {
         animate={{
           width:
             (containerRef.current?.clientWidth || 0) -
-            (itemRefs.current[active]?.offsetLeft || 0) -
-            (itemRefs.current[active]?.clientWidth || 0) -
+            ((itemRefs.current[active] as any)?.offsetLeft || 0) -
+            ((itemRefs.current[active] as any)?.clientWidth || 0) -
             10 +
             20,
           right: -20,
@@ -102,8 +101,8 @@ export default function BottomNavigation() {
         layout
         className="absolute top-1/2 transform -translate-y-1/2"
         animate={{
-          width: itemRefs.current[active]?.clientWidth,
-          left: itemRefs.current[active]?.offsetLeft,
+          width: (itemRefs.current[active] as any)?.clientWidth,
+          left: (itemRefs.current[active] as any)?.offsetLeft,
         }}
       >
         <div className="bg-lime-400 px-4 py-2 rounded-full flex items-center justify-center text-sm">
