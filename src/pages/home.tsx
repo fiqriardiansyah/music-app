@@ -141,29 +141,35 @@ const PopularSongs = () => {
         renderButtonGroupOutside={false}
         renderDotsOutside={false}
         responsive={{
-          desktop: {
-            breakpoint: {
-              max: 3000,
-              min: 1024,
-            },
+          1: {
+            breakpoint: { max: 464, min: 0 },
+            items: 2,
+            partialVisibilityGutter: 10,
+          },
+          2: {
+            breakpoint: { max: 600, min: 464 },
+            items: 3,
+            partialVisibilityGutter: 10,
+          },
+          3: {
+            breakpoint: { max: 800, min: 600 },
+            items: 4,
+            partialVisibilityGutter: 10,
+          },
+          4: {
+            breakpoint: { max: 1000, min: 800 },
+            items: 5,
+            partialVisibilityGutter: 10,
+          },
+          5: {
+            breakpoint: { max: 1200, min: 1000 },
             items: 6,
-            partialVisibilityGutter: 40,
+            partialVisibilityGutter: 10,
           },
-          mobile: {
-            breakpoint: {
-              max: 464,
-              min: 0,
-            },
-            items: 3,
-            partialVisibilityGutter: 100,
-          },
-          tablet: {
-            breakpoint: {
-              max: 1024,
-              min: 464,
-            },
-            items: 3,
-            partialVisibilityGutter: 30,
+          6: {
+            breakpoint: { max: 1600, min: 1200 },
+            items: 7,
+            partialVisibilityGutter: 10,
           },
         }}
         rewind={false}
@@ -191,7 +197,7 @@ const PopularSongs = () => {
                 alt={music.name}
                 className="w-full h-[130px] rounded object-cover"
               />
-              <div className="flex mt-2">
+              <div className="flex mt-2 justify-start text-start">
                 <div className="h-[20px] w-[2px] bg-blue-400 mr-2"></div>
                 <p className="text-white/60 capitalize font-light m-0">
                   {music.name}

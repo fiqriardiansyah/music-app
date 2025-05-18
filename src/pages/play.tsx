@@ -14,7 +14,7 @@ const TopMenu = () => {
     <div className="w-full flex justify-between container-layout py-3 static top-0 left-0 z-10">
       <button
         onClick={onClickClose}
-        className="bg-white/10 rounded-full cursor-pointer w-10 h-10 flex items-center justify-center"
+        className="bg-white/10 hover:bg-white/40 rounded-full cursor-pointer w-10 h-10 flex items-center justify-center"
       >
         <ChevronDown className="text-white" />
       </button>
